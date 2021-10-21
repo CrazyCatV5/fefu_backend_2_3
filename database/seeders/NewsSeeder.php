@@ -1,10 +1,11 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\News1;
+
+use App\Models\News;
 use Illuminate\Database\Seeder;
 
-class News1Seeder extends Seeder
+class NewsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +13,7 @@ class News1Seeder extends Seeder
      * @return void
      */
     public function run(){
-        News1::query()->delete();
-        News1::factory(rand(10, 25))->create();
+        News::query()->delete();
+        News::factory(rand(10, 25))->create();
     }
 }
