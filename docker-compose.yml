@@ -40,15 +40,6 @@ services:
             test: ["CMD", "pg_isready", "-q", "-d", "${DB_DATABASE}", "-U", "${DB_USERNAME}"]
             retries: 3
             timeout: 5s
-    pgadmin:
-        container_name: pgadmin4_container
-        image: dpage/pgadmin4
-        restart: always
-        environment:
-            PGADMIN_DEFAULT_EMAIL: zahark13@gmail.com
-            PGADMIN_DEFAULT_PASSWORD: root
-        ports:
-            - "5050:80"
 networks:
     sail:
         driver: bridge
