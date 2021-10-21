@@ -42,21 +42,16 @@ services:
             timeout: 5s
     pgadmin:
         container_name: pgadmin4_container
-        image: dpage/pgadmin4:latest
+        image: dpage/pgadmin4
         restart: always
         environment:
-            PGADMIN_DEFAULT_EMAIL: '${PGADMIN_DEFAULT_EMAIL}'
-            PGADMIN_DEFAULT_PASSWORD: '${PGADMIN_DEFAULT_PASSWORD}'
+            PGADMIN_DEFAULT_EMAIL: zahark13@gmail.com
+            PGADMIN_DEFAULT_PASSWORD: root
         ports:
-            - "${PGADMIN_EXTERNAL_PORT}:80"
-        volumes:
-            - pgadmin-data:/var/lib/pgadmin
-        networks:
-            - sail
+            - "5050:80"
 networks:
     sail:
         driver: bridge
 volumes:
     sailpgsql:
         driver: local
-    pgadmin-data:
