@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
-use App\Models\News;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
