@@ -57,15 +57,15 @@
             </div>
             <div>
                 <label>Phone</label>
-                <input class="border-t" name="phone" type="text" value="{{  old('phone') }}" />
+                <input class="bordered" name="phone" type="text" value="{{  old('phone') }}" />
             </div>
             <div>
                 <label>E-mail</label>
-                <input class="border-t" name="email" type="text" value="{{  old('email') }}" />
+                <input class="bordered" name="email" type="text" value="{{  old('email') }}" />
             </div>
             <div>
                 <label>Message</label>
-                <textarea class="border-t" name="message">{{ old('message') }}</textarea>
+                <textarea class="bordered" name="message">{{ old('message') }}</textarea>
             </div>
             <div>
                 <label>Gender</label>
