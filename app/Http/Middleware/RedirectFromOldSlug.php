@@ -35,10 +35,9 @@ class RedirectFromOldSlug
                 ->orderByDesc('id')
                 ->first();
         }
-        if ($newSlug){
+        if ($newSlug!== null) {
             return redirect($newSlug);
         }
-
         return $next($request);
     }
 }
