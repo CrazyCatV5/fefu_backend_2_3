@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\AppealsCount;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->singleton(AppealsCount::class, function () {
+            return AppealsCount::query()->first();
+        });
     }
 }

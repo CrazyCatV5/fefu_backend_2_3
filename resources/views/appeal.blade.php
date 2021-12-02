@@ -76,5 +76,9 @@
             </div>
             <input type="submit" />
         </form>
+        @if ($thanks)
+            <p>Ваше мнение очень важно для нас)</p>
+            <a href="{{ url()->previous() }}">Назад</a>
+        @endif
     </body>
 </html>
