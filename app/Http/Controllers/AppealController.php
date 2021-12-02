@@ -17,9 +17,9 @@ class AppealController extends Controller
     {
         $success = $request->session()->get('success', false);
         $thanks = $request->session()->get('thanks');
-        if ($thanks)
+        if ($thanks){
             $request->session()->put('thanks', false);
-
+        }
 
         if ($request->isMethod('post')) {
             $validated = $request->validate((new \App\Http\Requests\AppealPostRequest)->rules());
@@ -41,7 +41,7 @@ class AppealController extends Controller
                 ->with('success', $success);
 
         } else {
-            return view('appeal', ['success' => $success, '$thanks' => $thanks]);
+            return view('appeal', ['success' => $success, 'thanks' => $thanks]);
         }
 
     }

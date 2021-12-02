@@ -18,6 +18,6 @@
                 <hr>
             @endif
         @endforeach
-        @includeWhen(session('suggestion'), 'suggestion_script')
+        @includeWhen(session('suggestion'), 'scripts.suggestionScript')
     </body>
 </html>

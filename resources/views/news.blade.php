@@ -21,6 +21,6 @@
         <h1>{{ $news_item->title }}</h1>
         <p>{{ $news_item->published_at }}</p>
         <p>{{ $news_item->text }}</p>
-        @includeWhen(session('suggestion'), 'suggestion_script')
+        @includeWhen(session('suggestion'), 'scripts.suggestionScript')
     </body>
 </html>
