@@ -128,5 +128,6 @@
                 </div>
             </div>
         </div>
+        @includeWhen(session('suggestion'), 'scripts.suggestionScript')
     </body>
 </html>
