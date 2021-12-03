@@ -13,7 +13,7 @@ class CreateAppealsCountsTable extends Migration
      */
     public function up()
     {
-        Schema::create('appeals_counts', function (Blueprint $table) {
+        Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->integer('period');
             $table->integer('total');
@@ -28,6 +28,6 @@ class CreateAppealsCountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appeals_counts');
+        Schema::dropIfExists('settings');
     }
 }

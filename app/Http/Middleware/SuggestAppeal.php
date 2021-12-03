@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\AppealsCount;
+use App\Models\Settings;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -17,7 +17,7 @@ class SuggestAppeal
      */
     public function handle(Request $request, Closure $next)
     {
-        $appeals = app(AppealsCount::class);
+        $appeals = app(Settings::class);
 
         if ($request->session()->missing('appeals')) {
             $request->session()->put('appeals', false);
