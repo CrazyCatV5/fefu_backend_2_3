@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\RedirectFromOldSlug;
+use App\Http\Middleware\SuggestAppeal;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -39,6 +40,8 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            SuggestAppeal::class,
+
         ],
 
         'api' => [

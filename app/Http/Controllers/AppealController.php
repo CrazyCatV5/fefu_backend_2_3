@@ -16,6 +16,10 @@ class AppealController extends Controller
     public function __invoke(Request $request)
     {
         $success = $request->session()->get('success', false);
+        $thanks = $request->session()->get('thanks');
+        if ($thanks){
+            $request->session()->put('thanks', false);
+        }
 
         if ($request->isMethod('post')) {
             $validated = $request->validate((new \App\Http\Requests\AppealPostRequest)->rules());
@@ -31,13 +35,13 @@ class AppealController extends Controller
             $appeal->message = $validated['message'];
             $appeal->save();
             $success = true;
-
+            $request->session()->put('appeals', true);
             return redirect()
                 ->route('appeal')
                 ->with('success', $success);
 
         } else {
-            return view('appeal', ['success' => $success]);
+            return view('appeal', ['success' => $success, 'thanks' => $thanks]);
         }
 
     }
