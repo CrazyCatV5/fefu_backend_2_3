@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Validator;
 class ApiAuthController extends Controller
 {
     public function registration(Request $request) : JsonResponse {
+        $request['login'] = strtolower($request['login']);
         $validator = Validator::make($request->all(), [
-            'login' => 'required|unique:users|between:5, 30|regex: /^[a-z\.-]+$/i',
+            'login' => 'required|unique:users|between:5, 30|regex: /^[a-z0-9\-._]+$/i',
             'password' => 'required|between:10, 30|regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&].{10,}$/'
         ]);
 
@@ -35,9 +36,10 @@ class ApiAuthController extends Controller
     }
 
     public function login(Request $request) : JsonResponse {
+        $request['login'] = strtolower($request['login']);
         $validator = Validator::make($request->all(), [
-            'login' => 'required|between:5, 30|regex: /^[a-z\.-]+$/i',
-            'password' => 'required|between:10, 30|regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&].{10,}$/'
+            'login' => 'required',
+            'password' => 'required'
         ]);
 
         if ($validator->fails()) {

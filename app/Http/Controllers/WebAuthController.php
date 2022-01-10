@@ -12,8 +12,9 @@ class WebAuthController extends Controller
 {
     public function registration(Request $request) {
         if ($request->isMethod('post')) {
+            $request['login'] = strtolower($request['login']);
             $validated = $request->validate([
-                'login' => 'required|unique:users|between:5, 30|regex: /^[\w\.-]+$/',
+                'login' => 'required|unique:users|between:5, 30|regex: /^[a-z0-9\-._]+$/i',
                 'password' => 'required|between:10, 30|regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&].{10,}$/'
             ]);
 
@@ -28,10 +29,11 @@ class WebAuthController extends Controller
     }
 
     public function login(Request $request) {
+        $request['login'] = strtolower($request['login']);
         if ($request->isMethod('post')) {
             $validated = $request->validate([
-                'login' => 'required|unique:users|between:5, 30|regex: /^[\w\.-]+$/',
-                'password' => 'required|between:10, 30|regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&].{10,}$/'
+                'login' => 'required',
+                'password' => 'required'
             ]);
 
             if (Auth::attempt($validated)) {
