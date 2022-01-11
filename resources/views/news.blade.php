@@ -17,7 +17,8 @@
         </style>
     </head>
     <body>
-        <a href="{{ route('news_list') }}">Новости</a>
+    @include('header')
+    <a href="{{ route('news_list') }}">Новости</a>
         <h1>{{ $news_item->title }}</h1>
         <p>{{ $news_item->published_at }}</p>
         <p>{{ $news_item->text }}</p>

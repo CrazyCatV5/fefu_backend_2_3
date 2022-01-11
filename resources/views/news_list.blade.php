@@ -7,6 +7,7 @@
         <title>Laravel</title>
     </head>
     <body>
+    @include('header')
         <h1>Новости</h1>
         @foreach($news_list as $i => $news_item)
             <a href="{{ route('news_item', ['slug' => $news_item->slug]) }}"><b>{{ $news_item->title }}</b></a>
